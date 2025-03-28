@@ -63,7 +63,7 @@ public abstract inherited sharing class DMLService {
     }
 
     @SuppressWarnings('PMD.ApexCRUDViolation')
-    public virtual List<SObject> delete(List<SObject> records) {
+    public virtual void delete(List<SObject> records) {
         if (!objectDescribe.isDeletable()) {
             throw new DMLServiceException(ERROR_DELETE);
         }
