@@ -1,6 +1,18 @@
-# Salesforce DX Project: Next Steps
+# Salesforce DX Project: Apex Best Practices
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This Salesforce DX project demonstrates various Apex best practices, design patterns, and utility services for building robust and scalable Salesforce applications.
+
+## Project Overview and Key Components
+
+This project is structured to provide clear examples of how to implement common patterns and services in Apex. You can explore the `force-app/main/default/classes/` directory to find the source code for these components and their corresponding unit tests.
+
+### Apex Design Patterns Demonstrated:
+*   **Builder Pattern (`AccountBuilder.cls`):** Facilitates the creation of complex sObjects (e.g., Accounts for test data) in a readable and fluent way.
+*   **Service Layer (`DMLService.cls`, `AccountDMLService.cls`):** Encapsulates DML operations, promoting separation of concerns and including features like security checks. `DMLService` provides a generic base, while `AccountDMLService` offers a specialized implementation for Accounts using the Singleton pattern.
+
+### Apex Utility Services:
+*   **`RecordIdService.cls`:** A singleton service for generating mock Salesforce record IDs. This is invaluable for unit testing, allowing for predictable ID generation without actual DML operations.
+*   **`ProfileService.cls`:** A singleton service designed for efficient Profile management. It pre-loads and caches all Profile sObjects from the org upon its first use, significantly reducing SOQL queries. Key methods include `getProfileId(String profileName)` to get a profile's ID, `getProfile(String profileName)` to retrieve the full Profile sObject, and `getAllProfiles()` to get a map of all cached profiles.
 
 ## How Do You Plan to Deploy Your Changes?
 
